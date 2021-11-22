@@ -1,0 +1,37 @@
+# Standards: 1.2
+---
+# @meta author:value: [Thomas Boerger](https://github.com/tboerger)
+# @meta description: >
+# [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/coredns)
+# [![Testing Build](https://github.com/rolehippie/coredns/workflows/testing/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Atesting)
+# [![Readme Build](https://github.com/rolehippie/coredns/workflows/readme/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Areadme)
+# [![Galaxy Build](https://github.com/rolehippie/coredns/workflows/galaxy/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Agalaxy)
+# [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/coredns)](https://github.com/rolehippie/coredns/blob/master/LICENSE)
+#
+# Ansible role to install and configure CoreDNS server.
+#
+# ## Sponsor
+#
+# [![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu)
+#
+# Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
+# @end
+# @meta dependencies:value: >
+# None
+# @end
+galaxy_info:
+  author: Thomas Boerger
+  description: Ansible role to install and configure CoreDNS server
+  license: Apache-2.0
+  min_ansible_version: 2.10
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - dns
+
+dependencies: []
+
+...

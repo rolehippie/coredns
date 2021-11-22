@@ -1,0 +1,208 @@
+# Standards: 1.2
+---
+- name: Create system group
+  group:
+    name: coredns
+    system: True
+    state: present
+  tags:
+    - coredns
+
+- name: Create system user
+  user:
+    name: coredns
+    group: coredns
+    password: "!"
+    shell: /usr/sbin/nologin
+    home: /var/lib/coredns
+    create_home: False
+    system: True
+    state: present
+  tags:
+    - coredns
+
+- name: Create config directories
+  loop:
+    - /etc/coredns
+    - /etc/coredns/zones
+  file:
+    path: "{{ item }}"
+    owner: coredns
+    group: coredns
+    mode: u=rwx,g=rx,o=rx
+    state: directory
+  tags:
+    - coredns
+
+- name: Create state directories
+  loop:
+    - /var/lib/coredns
+  file:
+    path: "{{ item }}"
+    owner: coredns
+    group: coredns
+    mode: u=rwx,g=rx,o=rx
+    state: directory
+  tags:
+    - coredns
+
+- name: Check existing install
+  register: coredns_version_check
+  failed_when: False
+  changed_when: False
+  check_mode: False
+  shell: /usr/bin/coredns --version 2>&1
+  tags:
+    - coredns
+
+- name: Fact version change
+  set_fact:
+    coredns_version_changed: "{{ coredns_version_check.rc != 0 or (coredns_version_check.stdout_lines is defined and coredns_version not in coredns_version_check.stdout_lines[0]) | bool }}"
+  tags:
+    - coredns
+
+- name: Download release tarball
+  when: coredns_version_changed
+  notify:
+    - Restart coredns
+  unarchive:
+    src: "{{ coredns_download }}"
+    dest: /usr/bin
+    remote_src: True
+    owner: root
+    group: root
+  tags:
+    - coredns
+
+- name: Write general config
+  notify:
+    - Reload coredns
+  template:
+    src: config.j2
+    dest: /etc/coredns/Corefile
+    owner: coredns
+    group: coredns
+    mode: u=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Zone from url
+  notify:
+    - Reload coredns
+  loop: "{{ coredns_default_zones + coredns_extra_zones }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.url | default(False) and item.state | default("present") == "present"
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
+    owner: coredns
+    group: coredns
+    mode: o=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Zone from content
+  notify:
+    - Reload coredns
+  loop: "{{ coredns_default_zones + coredns_extra_zones }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.content | default(False) and item.state | default("present") == "present"
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
+    owner: coredns
+    group: coredns
+    mode: o=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Zone from file
+  notify:
+    - Reload coredns
+  loop: "{{ coredns_default_zones + coredns_extra_zones }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.src | default(False) and item.state | default("present") == "present"
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
+    owner: coredns
+    group: coredns
+    mode: o=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Delete defined zones
+  notify:
+    - Reload coredns
+  loop: "{{ coredns_default_zones + coredns_extra_zones }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.state | default("present") == "absent"
+  file:
+    path: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
+    state: absent
+  tags:
+    - coredns
+
+- name: Write sysusers config
+  notify:
+    - Restart coredns
+  template:
+    src: sysusers.j2
+    dest: /usr/lib/sysusers.d/coredns.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Write tmpfiles config
+  notify:
+    - Restart coredns
+  template:
+    src: sysusers.j2
+    dest: /usr/lib/tmpfiles.d/coredns.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Write default config
+  notify:
+    - Restart coredns
+  template:
+    src: default.j2
+    dest: /etc/default/coredns
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Write service file
+  notify:
+    - Restart coredns
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/coredns.service
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags:
+    - coredns
+
+- name: Start coredns service
+  systemd:
+    name: coredns
+    state: started
+    daemon_reload: True
+    masked: False
+    enabled: True
+  tags:
+    - coredns
+
+...

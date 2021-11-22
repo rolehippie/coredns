@@ -1,0 +1,15 @@
+# Standards: 1.2
+---
+- name: Restart coredns
+  systemd:
+    name: coredns
+    state: restarted
+    daemon_reload: True
+
+- name: Reload coredns
+  systemd:
+    name: coredns
+    state: reloaded
+    daemon_reload: True
+
+...

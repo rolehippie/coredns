@@ -1,0 +1,71 @@
+{
+    "extends": [
+        "config:base",
+        ":semanticCommits",
+        ":semanticCommitType(deps)",
+        ":automergePatch"
+    ],
+    "regexManagers": [{
+        "fileMatch": [
+            "defaults/main.yml"
+        ],
+        "matchStrings": [
+            "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\n.*?_version: (?<currentValue>.*)\\s"
+        ]
+    }],
+    "packageRules": [{
+            "description": "Strip v prefix from versions",
+            "groupName": "version prefix",
+            "matchDatasources": [
+                "github-releases",
+                "github-tags"
+            ],
+            "extractVersion": "^v(?<version>.*)$"
+        },
+        {
+            "description": "Semantic commits for major updates",
+            "groupName": "major updates",
+            "matchDatasources": [
+                "github-releases",
+                "github-tags",
+                "galaxy-collection"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "semanticCommitScope": "major",
+            "automerge": false
+        },
+        {
+            "description": "Semantic commits for minor updates",
+            "groupName": "minor updates",
+            "matchDatasources": [
+                "github-releases",
+                "github-tags",
+                "galaxy-collection"
+            ],
+            "matchUpdateTypes": [
+                "minor"
+            ],
+            "semanticCommitScope": "minor",
+            "automerge": false
+        },
+        {
+            "description": "Semantic commits for patch updates",
+            "groupName": "patch updates",
+            "matchDatasources": [
+                "github-releases",
+                "github-tags",
+                "galaxy-collection"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "semanticCommitScope": "patch",
+            "automerge": true
+        }
+    ],
+    "labels": [
+        "renovate"
+    ]
+}

@@ -1,0 +1,120 @@
+# Standards: 1.2
+---
+# @var coredns_version:description: Version of the release to install
+coredns_version: 1.8.4
+
+# @var coredns_download:description: URL to the archive of the release to install
+coredns_download: "https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_amd64.tgz"
+
+# @var coredns_listen_port:description: Override the port binding for CoreDNS
+coredns_listen_port:
+
+# @var coredns_general_config:description: Optional raw config to overwrite the Corefile
+coredns_general_config:
+
+# @var coredns_general_enabled:description: Enable the default zone part of core config
+coredns_general_enabled: True
+
+# @var coredns_general_name:description: Zone for the general standard configuration
+coredns_general_name: .
+
+# @var coredns_general_plugins:description: List of plugins for standard configuration
+# @var coredns_general_plugins:example: >
+# coredns_general_plugins:
+#   - name: errors
+#   - name: log
+#   - name: prometheus
+#   - name: chaos
+#     args: CoreDNS-001 info@coredns.io
+#   - name: cache
+#     args: 30
+#   - name: loop
+#   - name: loadbalance
+# @end
+coredns_general_plugins:
+  - name: errors
+  - name: log
+  - name: prometheus
+  - name: hosts
+  - name: forward
+    args: . 8.8.8.8 1.1.1.1
+  - name: cache
+    args: 30
+  - name: loop
+  - name: loadbalance
+
+# @var coredns_default_zones:description: List of default zone file definitions
+# @var coredns_default_zones:example: >
+# coredns_default_zones:
+#   - name: example.org
+#     plugins:
+#       - name: prometheus
+#       - name: log
+#       - name: errors
+#       - name: chaos
+#         args: CoreDNS-001 info@coredns.io
+#       - name: dnssec
+#         config: |
+#           key file Kexample.org.+013+45330
+#     content: |
+#       $ORIGIN example.org.
+#       @	3600 IN	SOA sns.dns.icann.org. noc.dns.icann.org. (
+#               2017042745 ; serial
+#               7200       ; refresh (2 hours)
+#               3600       ; retry (1 hour)
+#               1209600    ; expire (2 weeks)
+#               3600       ; minimum (1 hour)
+#               )
+#
+#         3600 IN NS a.iana-servers.net.
+#         3600 IN NS b.iana-servers.net.
+#
+#       www     IN A     127.0.0.1
+#               IN AAAA  ::1
+#   - name: example.de
+#     url: http://example.com/example-zone
+#   - name: example.eu
+#     src: path/to/template.j2
+#   - name: example.org
+#     state: absent
+# @end
+coredns_default_zones: []
+
+# @var coredns_extra_zones:description: List of extra zone file definitions
+# @var coredns_extra_zones:example: >
+# coredns_extra_zones:
+#   - name: example.org
+#     plugins:
+#       - name: prometheus
+#       - name: log
+#       - name: errors
+#       - name: chaos
+#         args: CoreDNS-001 info@coredns.io
+#       - name: dnssec
+#         config: |
+#           key file Kexample.org.+013+45330
+#     content: |
+#       $ORIGIN example.org.
+#       @	3600 IN	SOA sns.dns.icann.org. noc.dns.icann.org. (
+#               2017042745 ; serial
+#               7200       ; refresh (2 hours)
+#               3600       ; retry (1 hour)
+#               1209600    ; expire (2 weeks)
+#               3600       ; minimum (1 hour)
+#               )
+#
+#         3600 IN NS a.iana-servers.net.
+#         3600 IN NS b.iana-servers.net.
+#
+#       www     IN A     127.0.0.1
+#               IN AAAA  ::1
+#   - name: example.de
+#     url: http://example.com/example-zone
+#   - name: example.eu
+#     src: path/to/template.j2
+#   - name: example.org
+#     state: absent
+# @end
+coredns_extra_zones: []
+
+...
