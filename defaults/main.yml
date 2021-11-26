@@ -1,6 +1,7 @@
 # Standards: 1.2
 ---
 # @var coredns_version:description: Version of the release to install
+# renovate: datasource=github-releases depName=coredns/coredns
 coredns_version: 1.8.4
 
 # @var coredns_download:description: URL to the archive of the release to install
