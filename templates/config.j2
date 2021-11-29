@@ -7,11 +7,11 @@
 {% if zone.plugins | default(False) %}
 {% for plugin in zone.plugins %}
 {% if plugin.config | default(False) %}
-    {{ plugin.name }}{{ ' ' + plugin.args if plugin.args | default(False) else '' }} {
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }} {
         {{ plugin.config | indent(width=8, first=False) }}
     }
 {% else %}
-    {{ plugin.name }}{{ ' ' + plugin.args if plugin.args | default(False) else '' }}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }}
 {% endif %}
 {% endfor %}
 {% endif %}
@@ -22,11 +22,11 @@
 {{ coredns_general_name }} {
 {% for plugin in coredns_general_plugins %}
 {% if plugin.config | default(False) %}
-    {{ plugin.name }}{{ ' ' + plugin.args if plugin.args | default(False) else '' }} {
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }} {
         {{ plugin.config | indent(width=8, first=False) }}
     }
 {% else %}
-    {{ plugin.name }}{{ ' ' + plugin.args if plugin.args | default(False) else '' }}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }}
 {% endif %}
 {% endfor %}
 }
