@@ -1,30 +1,31 @@
 # coredns
 
-[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/coredns) [![Testing Build](https://github.com/rolehippie/coredns/workflows/testing/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/coredns/workflows/readme/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/coredns/workflows/galaxy/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/coredns)](https://github.com/rolehippie/coredns/blob/master/LICENSE) 
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/coredns) [![Testing Build](https://github.com/rolehippie/coredns/workflows/testing/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/coredns/workflows/readme/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/coredns/workflows/galaxy/badge.svg)](https://github.com/rolehippie/coredns/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/coredns)](https://github.com/rolehippie/coredns/blob/master/LICENSE)
 
-Ansible role to install and configure CoreDNS server. 
+Ansible role to install and configure CoreDNS server.
 
-## Sponsor 
+## Sponsor
 
-[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu) 
+[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu)
 
 Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
 
 ## Table of content
 
-* [Default Variables](#default-variables)
-  * [coredns_default_zones](#coredns_default_zones)
-  * [coredns_download](#coredns_download)
-  * [coredns_extra_zones](#coredns_extra_zones)
-  * [coredns_general_config](#coredns_general_config)
-  * [coredns_general_enabled](#coredns_general_enabled)
-  * [coredns_general_name](#coredns_general_name)
-  * [coredns_general_plugins](#coredns_general_plugins)
-  * [coredns_listen_port](#coredns_listen_port)
-  * [coredns_version](#coredns_version)
-* [Dependencies](#dependencies)
-* [License](#license)
-* [Author](#author)
+- [Default Variables](#default-variables)
+  - [coredns_default_zones](#coredns_default_zones)
+  - [coredns_download](#coredns_download)
+  - [coredns_extra_zones](#coredns_extra_zones)
+  - [coredns_general_config](#coredns_general_config)
+  - [coredns_general_enabled](#coredns_general_enabled)
+  - [coredns_general_name](#coredns_general_name)
+  - [coredns_general_plugins](#coredns_general_plugins)
+  - [coredns_listen_port](#coredns_listen_port)
+  - [coredns_version](#coredns_version)
+- [Discovered Tags](#discovered-tags)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Author](#author)
 
 ---
 
@@ -64,10 +65,8 @@ coredns_default_zones:
               3600       ; minimum (1 hour)
               )
 
-
         3600 IN NS a.iana-servers.net.
         3600 IN NS b.iana-servers.net.
-
 
       www     IN A     127.0.0.1
               IN AAAA  ::1
@@ -124,10 +123,8 @@ coredns_extra_zones:
               3600       ; minimum (1 hour)
               )
 
-
         3600 IN NS a.iana-servers.net.
         3600 IN NS b.iana-servers.net.
-
 
       www     IN A     127.0.0.1
               IN AAAA  ::1
@@ -221,12 +218,17 @@ Version of the release to install
 #### Default value
 
 ```YAML
-coredns_version: 1.8.4
+coredns_version: 1.9.0
 ```
+
+## Discovered Tags
+
+**_coredns_**
+
 
 ## Dependencies
 
-* None
+- None
 
 ## License
 
