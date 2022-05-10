@@ -2,7 +2,7 @@
 ---
 # @var coredns_version:description: Version of the release to install
 # renovate: datasource=github-releases depName=coredns/coredns
-coredns_version: 1.9.1
+coredns_version: 1.9.2
 
 # @var coredns_download:description: URL to the archive of the release to install
 coredns_download: "https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_amd64.tgz"
