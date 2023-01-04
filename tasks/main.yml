@@ -76,7 +76,7 @@
 
 - name: Write general config
   notify:
-    - Reload coredns
+    - Restart coredns
   template:
     src: config.j2
     dest: /etc/coredns/Corefile
@@ -88,7 +88,7 @@
 
 - name: Zone from url
   notify:
-    - Reload coredns
+    - Restart coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -104,7 +104,7 @@
 
 - name: Zone from content
   notify:
-    - Reload coredns
+    - Restart coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -120,7 +120,7 @@
 
 - name: Zone from file
   notify:
-    - Reload coredns
+    - Restart coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -136,7 +136,7 @@
 
 - name: Delete defined zones
   notify:
-    - Reload coredns
+    - Restart coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -150,6 +150,7 @@
 - name: Write sysusers config
   notify:
     - Restart coredns
+  when: ansible_distribution_version is version('20.04', '>=')
   template:
     src: sysusers.j2
     dest: /usr/lib/sysusers.d/coredns.conf

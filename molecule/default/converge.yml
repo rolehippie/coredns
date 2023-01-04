@@ -1,0 +1,13 @@
+# Standards: 1.2
+---
+- name: Converge
+  hosts: all
+  vars:
+    coredns_listen_port: 5353
+    coredns_general_plugins:
+      - name: errors
+      - name: log
+  roles:
+    - role: rolehippie.coredns
+
+...
