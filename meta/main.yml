@@ -7,7 +7,7 @@
 # [![Readme Workflow](https://github.com/rolehippie/coredns/actions/workflows/readme.yml/badge.svg)](https://github.com/rolehippie/coredns/actions/workflows/readme.yml)
 # [![Galaxy Workflow](https://github.com/rolehippie/coredns/actions/workflows/galaxy.yml/badge.svg)](https://github.com/rolehippie/coredns/actions/workflows/galaxy.yml)
 # [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/coredns)](https://github.com/rolehippie/coredns/blob/master/LICENSE)
-# ![Ansible Role](https://img.shields.io/ansible/role/57045)
+# [![Ansible Role](https://img.shields.io/ansible/role/57045)](https://galaxy.ansible.com/rolehippie/coredns)
 #
 # Ansible role to install and configure CoreDNS server.
 #
