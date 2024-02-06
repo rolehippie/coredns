@@ -12,7 +12,7 @@
     name: coredns
     group: coredns
     password: "!"
-    ansible.builtin.shell: /usr/sbin/nologin
+    shell: /usr/sbin/nologin
     home: /var/lib/coredns
     create_home: False
     system: True
