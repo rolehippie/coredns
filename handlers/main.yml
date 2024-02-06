@@ -1,12 +1,12 @@
 ---
 - name: Restart coredns
-  systemd:
+  ansible.builtin.systemd:
     name: coredns
     state: restarted
     daemon_reload: True
 
 - name: Reload coredns
-  systemd:
+  ansible.builtin.systemd:
     name: coredns
     state: reloaded
     daemon_reload: True
