@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/rolehippie/coredns/compare/v1.1.1...v2.0.0) (2024-02-12)
+
+
+### Features
+
+* drop support for ubuntu 18.04 ([f909bdc](https://github.com/rolehippie/coredns/commit/f909bdc5896dc28dec64f0c4557005d987cb5bd3))
+* used full qualified collection names ([363e791](https://github.com/rolehippie/coredns/commit/363e7913a20188f1ab09b349c44608a797569aa7))
+
+
+### Bugfixes
+
+* use right attribute for user shell ([84478ad](https://github.com/rolehippie/coredns/commit/84478adeb8df5d3d03bab4feecd97dbcedbd978c))
+
 ## [1.1.1](https://github.com/rolehippie/coredns/compare/v1.1.0...v1.1.1) (2023-08-31)
 
 
