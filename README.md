@@ -226,7 +226,7 @@ Version of the release to install
 #### Default value
 
 ```YAML
-coredns_version: 1.11.1
+coredns_version: 1.11.3
 ```
 
 ## Discovered Tags
