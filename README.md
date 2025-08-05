@@ -1,4 +1,4 @@
-# coredns
+# workspace
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/coredns)
 [![General Workflow](https://github.com/rolehippie/coredns/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/coredns/actions/workflows/general.yml)
@@ -93,8 +93,8 @@ URL to the archive of the release to install
 #### Default value
 
 ```YAML
-coredns_download: https://github.com/coredns/coredns/releases/download/v{{ coredns_version
-  }}/coredns_{{ coredns_version }}_linux_amd64.tgz
+coredns_download: https://github.com/coredns/coredns/releases/download/v{{ 
+  coredns_version }}/coredns_{{ coredns_version }}_linux_amd64.tgz
 ```
 
 ### coredns_extra_zones
@@ -226,13 +226,12 @@ Version of the release to install
 #### Default value
 
 ```YAML
-coredns_version: 1.12.2
+coredns_version: 1.12.3
 ```
 
 ## Discovered Tags
 
 **_coredns_**
-
 
 ## Dependencies
 
