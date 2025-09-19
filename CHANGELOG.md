@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/rolehippie/coredns/compare/v2.1.3...v2.2.0) (2025-09-19)
+
+
+### Features
+
+* apply new repo structure and update linting ([96ebacd](https://github.com/rolehippie/coredns/commit/96ebacd46870cf19d5f15097867368a8d3ab5160))
+
+
+### Bugfixes
+
+* **deps:** update dependency coredns/coredns to v1.12.4 ([#39](https://github.com/rolehippie/coredns/issues/39)) ([1238da3](https://github.com/rolehippie/coredns/commit/1238da34d21225d294011e8692e8d4683e4e1f69))
+
 ## [2.1.3](https://github.com/rolehippie/coredns/compare/v2.1.2...v2.1.3) (2025-08-11)
 
 
