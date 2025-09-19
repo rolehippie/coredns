@@ -11,6 +11,9 @@ name: general
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   linting:
     runs-on: ubuntu-latest
@@ -21,7 +24,9 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Role linting
-        uses: actionhippie/ansible-later@v5
+        uses: ansible/ansible-lint@main
+        with:
+          requirements_file: requirements.yml
 
   testing:
     runs-on: ubuntu-latest

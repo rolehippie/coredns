@@ -3,8 +3,11 @@
 # renovate: datasource=github-releases depName=coredns/coredns
 coredns_version: 1.12.4
 
+# @var coredns_arch:description: Target system architecture of the binary
+coredns_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'amd64' }}"
+
 # @var coredns_download:description: URL to the archive of the release to install
-coredns_download: "https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_amd64.tgz"
+coredns_download: "https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_{{ coredns_arch }}.tgz"
 
 # @var coredns_listen_port:description: Override the port binding for CoreDNS
 coredns_listen_port:
@@ -13,7 +16,7 @@ coredns_listen_port:
 coredns_general_config:
 
 # @var coredns_general_enabled:description: Enable the default zone part of core config
-coredns_general_enabled: True
+coredns_general_enabled: true
 
 # @var coredns_general_name:description: Zone for the general standard configuration
 coredns_general_name: .

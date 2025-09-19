@@ -1,32 +1,32 @@
-{% if coredns_general_config | default(False) %}
+{% if coredns_general_config | default(false) %}
 {{ coredns_general_config }}
 {% else %}
 {% for zone in coredns_default_zones + coredns_extra_zones %}
 {{ zone.name }} {
     file {{ zone.path | default('/etc/coredns/zones') }}/{{ zone.name }}
-{% if zone.plugins | default(False) %}
+{% if zone.plugins | default(false) %}
 {% for plugin in zone.plugins %}
-{% if plugin.config | default(False) %}
-    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }} {
-        {{ plugin.config | indent(width=8, first=False) }}
+{% if plugin.config | default(false) %}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(false) else '' }} {
+        {{ plugin.config | indent(width=8, first=false) }}
     }
 {% else %}
-    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(false) else '' }}
 {% endif %}
 {% endfor %}
 {% endif %}
 }
 
 {% endfor %}
-{% if coredns_general_enabled | default(False) %}
+{% if coredns_general_enabled | default(false) %}
 {{ coredns_general_name }} {
 {% for plugin in coredns_general_plugins %}
-{% if plugin.config | default(False) %}
-    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }} {
-        {{ plugin.config | indent(width=8, first=False) }}
+{% if plugin.config | default(false) %}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(false) else '' }} {
+        {{ plugin.config | indent(width=8, first=false) }}
     }
 {% else %}
-    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(False) else '' }}
+    {{ plugin.name }}{{ ' ' + (plugin.args | string) if plugin.args | default(false) else '' }}
 {% endif %}
 {% endfor %}
 }

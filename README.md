@@ -1,4 +1,4 @@
-# workspace
+# coredns
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/coredns)
 [![General Workflow](https://github.com/rolehippie/coredns/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/coredns/actions/workflows/general.yml)
@@ -17,6 +17,7 @@ Building and improving this Ansible role have been sponsored by my current and p
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
+  - [coredns_arch](#coredns_arch)
   - [coredns_default_zones](#coredns_default_zones)
   - [coredns_download](#coredns_download)
   - [coredns_extra_zones](#coredns_extra_zones)
@@ -38,6 +39,17 @@ Building and improving this Ansible role have been sponsored by my current and p
 - Minimum Ansible version: `2.10`
 
 ## Default Variables
+
+### coredns_arch
+
+Target system architecture of the binary
+
+#### Default value
+
+```YAML
+coredns_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture
+  == 'arm64' else 'amd64' }}"
+```
 
 ### coredns_default_zones
 
@@ -94,7 +106,7 @@ URL to the archive of the release to install
 
 ```YAML
 coredns_download: https://github.com/coredns/coredns/releases/download/v{{ 
-  coredns_version }}/coredns_{{ coredns_version }}_linux_amd64.tgz
+  coredns_version }}/coredns_{{ coredns_version }}_linux_{{ coredns_arch }}.tgz
 ```
 
 ### coredns_extra_zones
