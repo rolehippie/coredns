@@ -34,13 +34,13 @@ jobs:
           token: ${{ steps.token.outputs.token }}
 
       - name: Generate readme
-        uses: actionhippie/ansible-doctor@v5
+        uses: actionhippie/ansible-doctor@96da9cce812cbe5a1e577b0c3e012ca10cbac429 # v5
         with:
           force: true
           verbose: true
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         with:
           author_name: GitHub Actions
           author_email: github@webhippie.de
