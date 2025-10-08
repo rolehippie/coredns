@@ -1,7 +1,7 @@
 ---
 # @var coredns_version:description: Version of the release to install
 # renovate: datasource=github-releases depName=coredns/coredns
-coredns_version: 1.13.0
+coredns_version: 1.13.1
 
 # @var coredns_arch:description: Target system architecture of the binary
 coredns_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'amd64' }}"
