@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://github.com/rolehippie/coredns/compare/v2.2.0...v2.3.0) (2025-10-13)
+
+
+### Features
+
+* **minor:** update dependency coredns/coredns to v1.13.0 ([#44](https://github.com/rolehippie/coredns/issues/44)) ([3f44ad4](https://github.com/rolehippie/coredns/commit/3f44ad4efbda5621a6c9d0fa3430c01939fac2b4))
+
+
+### Bugfixes
+
+* **patch:** update dependency coredns/coredns to v1.13.1 ([#45](https://github.com/rolehippie/coredns/issues/45)) ([afe535b](https://github.com/rolehippie/coredns/commit/afe535b080ebf8e04dada0095d0f22e696929b63))
+
 ## [2.2.0](https://github.com/rolehippie/coredns/compare/v2.1.3...v2.2.0) (2025-09-19)
 
 
