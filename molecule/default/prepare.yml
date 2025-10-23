@@ -23,6 +23,7 @@
     - name: Install test dependencies
       when: aptdir.stat.exists
       loop:
+        - cron
         - python3-gpg
         - curl
       ansible.builtin.apt:
