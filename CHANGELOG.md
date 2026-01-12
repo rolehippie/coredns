@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://github.com/rolehippie/coredns/compare/v2.3.1...v2.4.0) (2026-01-12)
+
+### Dependencies
+
+* **minor:** update dependency coredns/coredns to v1.14.0 ([#62](https://github.com/rolehippie/coredns/issues/62)) ([e361c51](https://github.com/rolehippie/coredns/commit/e361c5190fcd3ba706d7c05457518b1f1475ceec))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([be687c0](https://github.com/rolehippie/coredns/commit/be687c0e2872aa85898233716830d40b8ed6e649))
+* **flake:** updated lockfile [skip ci] ([7185f62](https://github.com/rolehippie/coredns/commit/7185f624522e50b0a4d1505e450f61daf3cbe3c3))
+* **flake:** updated lockfile [skip ci] ([fc950c9](https://github.com/rolehippie/coredns/commit/fc950c9eadbf3aadb3ef226975a9267d6b48a754))
+* **flake:** updated lockfile [skip ci] ([b699bff](https://github.com/rolehippie/coredns/commit/b699bff10789f90eaadf4391de202c3d420e9f24))
+
 ## [2.3.1](https://github.com/rolehippie/coredns/compare/v2.3.0...v2.3.1) (2025-12-15)
 
 
