@@ -49,7 +49,8 @@
   register: coredns_version_check
   failed_when: false
   changed_when: false
-  check_mode: false
+  when:
+    - not ansible_check_mode
   ansible.builtin.shell: /usr/bin/coredns --version 2>&1
   tags:
     - coredns
@@ -76,7 +77,7 @@
 
 - name: Write general config
   notify:
-    - Restart coredns
+    - Reload coredns
   ansible.builtin.template:
     src: config.j2
     dest: /etc/coredns/Corefile
@@ -88,7 +89,7 @@
 
 - name: Zone from url
   notify:
-    - Restart coredns
+    - Reload coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -100,13 +101,13 @@
     dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
     owner: coredns
     group: coredns
-    mode: o=rw,g=r,o=r
+    mode: u=rw,g=r,o=r
   tags:
     - coredns
 
 - name: Zone from content
   notify:
-    - Restart coredns
+    - Reload coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -118,13 +119,13 @@
     dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
     owner: coredns
     group: coredns
-    mode: o=rw,g=r,o=r
+    mode: u=rw,g=r,o=r
   tags:
     - coredns
 
 - name: Zone from file
   notify:
-    - Restart coredns
+    - Reload coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -136,13 +137,13 @@
     dest: "{{ item.path | default('/etc/coredns/zones') }}/{{ item.name }}"
     owner: coredns
     group: coredns
-    mode: o=rw,g=r,o=r
+    mode: u=rw,g=r,o=r
   tags:
     - coredns
 
 - name: Delete defined zones
   notify:
-    - Restart coredns
+    - Reload coredns
   loop: "{{ coredns_default_zones + coredns_extra_zones }}"
   loop_control:
     label: "{{ item.name }}"
@@ -158,7 +159,7 @@
   notify:
     - Restart coredns
   when:
-    - ansible_distribution_version is version('20.04', '>=')
+    - ansible_facts['distribution_version'] is version('20.04', '>=')
   ansible.builtin.template:
     src: sysusers.j2
     dest: /usr/lib/sysusers.d/coredns.conf
