@@ -4,7 +4,7 @@
 coredns_version: 1.14.1
 
 # @var coredns_arch:description: Target system architecture of the binary
-coredns_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'amd64' }}"
+coredns_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'amd64' }}"
 
 # @var coredns_download:description: URL to the archive of the release to install
 coredns_download: "https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_{{ coredns_arch }}.tgz"
