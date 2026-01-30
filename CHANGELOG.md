@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.5.0](https://github.com/rolehippie/coredns/compare/v2.4.1...v2.5.0) (2026-01-30)
+
+### Features
+
+* use reload instead of restart for config/zone changes ([e88dfd3](https://github.com/rolehippie/coredns/commit/e88dfd3a7ebd81f40d85805adf6898ad14071229)), closes [#66](https://github.com/rolehippie/coredns/issues/66)
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([7a9d845](https://github.com/rolehippie/coredns/commit/7a9d84580c88566ee61233ed7f3126361fb30942))
+
 ## [2.4.1](https://github.com/rolehippie/coredns/compare/v2.4.0...v2.4.1) (2026-01-19)
 
 ### Dependencies
