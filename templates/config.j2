@@ -3,7 +3,9 @@
 {% else %}
 {% for zone in coredns_default_zones + coredns_extra_zones %}
 {{ zone.name }} {
+{% if zone.content is defined or zone.url is defined or zone.src is defined %}
     file {{ zone.path | default('/etc/coredns/zones') }}/{{ zone.name }}
+{% endif %}
 {% if zone.plugins | default(false) %}
 {% for plugin in zone.plugins %}
 {% if plugin.config | default(false) %}
