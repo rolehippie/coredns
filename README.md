@@ -47,8 +47,7 @@ Target system architecture of the binary
 #### Default value
 
 ```YAML
-coredns_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64']
-  else 'amd64' }}"
+coredns_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'amd64' }}"
 ```
 
 ### coredns_default_zones
@@ -105,8 +104,7 @@ URL to the archive of the release to install
 #### Default value
 
 ```YAML
-coredns_download: https://github.com/coredns/coredns/releases/download/v{{ 
-  coredns_version }}/coredns_{{ coredns_version }}_linux_{{ coredns_arch }}.tgz
+coredns_download: https://github.com/coredns/coredns/releases/download/v{{ coredns_version }}/coredns_{{ coredns_version }}_linux_{{ coredns_arch }}.tgz
 ```
 
 ### coredns_extra_zones
