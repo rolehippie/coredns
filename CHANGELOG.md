@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.5.1](https://github.com/rolehippie/coredns/compare/v2.5.0...v2.5.1) (2026-04-13)
+
+### Bugfixes
+
+* **template:** conditionally render file directive only when zone has content ([1c1aa2c](https://github.com/rolehippie/coredns/commit/1c1aa2c952b390e7d26f5ea2c8e88c53575cfded))
+
+### Dependencies
+
+* **patch:** update dependency coredns/coredns to v1.14.2 ([#68](https://github.com/rolehippie/coredns/issues/68)) ([1c00286](https://github.com/rolehippie/coredns/commit/1c00286be6d291d5609d4528453e81e8d06693d8))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([ea2a8a4](https://github.com/rolehippie/coredns/commit/ea2a8a4fd4d1515bc54104b3770fcc8b5ed8e299))
+* **flake:** updated lockfile [skip ci] ([e0ad60b](https://github.com/rolehippie/coredns/commit/e0ad60b86f4038d190f7f1ab50e499233b3a28c4))
+* **flake:** updated lockfile [skip ci] ([2040faf](https://github.com/rolehippie/coredns/commit/2040fafe72c5f624e4286284670d6160c3e26d43))
+* **flake:** updated lockfile [skip ci] ([47a2986](https://github.com/rolehippie/coredns/commit/47a2986688208c6fb53cf6a8db5ffbab8c630a3c))
+* **flake:** updated lockfile [skip ci] ([27a0dbf](https://github.com/rolehippie/coredns/commit/27a0dbf281aae1f57affecbb56bc6b801c854727))
+* **flake:** updated lockfile [skip ci] ([36654ae](https://github.com/rolehippie/coredns/commit/36654ae72a6181dfd67fc433352757d0f6870d64))
+* **flake:** updated lockfile [skip ci] ([0730b2d](https://github.com/rolehippie/coredns/commit/0730b2d7fe9ea1128de8aa1159056c4f829738d2))
+* **flake:** updated lockfile [skip ci] ([5fc4f8a](https://github.com/rolehippie/coredns/commit/5fc4f8a653250f4f4cf27adf0e1cf319296ca08e))
+* **flake:** updated lockfile [skip ci] ([3d7a9e7](https://github.com/rolehippie/coredns/commit/3d7a9e737cd1001528479f79fd390906588bd4b6))
+* **flake:** updated lockfile [skip ci] ([7d131a6](https://github.com/rolehippie/coredns/commit/7d131a6a405783236a5fd87c4ce7184e7e7c072f))
+* **flake:** updated lockfile [skip ci] ([e65b045](https://github.com/rolehippie/coredns/commit/e65b04558d0df7a1f30d1ba8f1f01a0b4f887740))
+
 ## [2.5.0](https://github.com/rolehippie/coredns/compare/v2.4.1...v2.5.0) (2026-01-30)
 
 ### Features
