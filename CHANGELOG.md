@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.5.4](https://github.com/rolehippie/coredns/compare/v2.5.3...v2.5.4) (2026-07-13)
+
 ## [2.5.3](https://github.com/rolehippie/coredns/compare/v2.5.2...v2.5.3) (2026-06-15)
 
 ### Dependencies
