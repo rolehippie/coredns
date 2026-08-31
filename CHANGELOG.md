@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.8.2](https://github.com/rolehippie/coredns/compare/v2.8.1...v2.8.2) (2026-08-31)
+
+### Dependencies
+
+* **patch:** update dependency pipx:ansible-doctor to v8.4.1 ([#88](https://github.com/rolehippie/coredns/issues/88)) ([70d6be1](https://github.com/rolehippie/coredns/commit/70d6be152dd411c4b1db044e085e0e85d7bbb5a7))
+
 ## [2.8.1](https://github.com/rolehippie/coredns/compare/v2.8.0...v2.8.1) (2026-08-24)
 
 ### Dependencies
