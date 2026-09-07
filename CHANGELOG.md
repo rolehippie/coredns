@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.9.0](https://github.com/rolehippie/coredns/compare/v2.8.2...v2.9.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([35cd074](https://github.com/rolehippie/coredns/commit/35cd0745cda3261f5e5d5aae5634cf908f2645e7))
+
 ## [2.8.2](https://github.com/rolehippie/coredns/compare/v2.8.1...v2.8.2) (2026-08-31)
 
 ### Dependencies
