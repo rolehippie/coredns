@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.10.0](https://github.com/rolehippie/coredns/compare/v2.9.0...v2.10.0) (2026-10-26)
+
+### Dependencies
+
+* **minor:** update dependency coredns/coredns to v1.15.0 ([#105](https://github.com/rolehippie/coredns/issues/105)) ([95661a3](https://github.com/rolehippie/coredns/commit/95661a354605a10dbb2080d1c7081ba49a6ed40e))
+* **mise:** update dependency pipx:ansible-core to v2.21.4 ([#89](https://github.com/rolehippie/coredns/issues/89)) ([660f12f](https://github.com/rolehippie/coredns/commit/660f12f06d5ebc3a6565888717e6c08552aa87fd))
+* **mise:** update dependency pipx:ansible-core to v2.21.5 ([#98](https://github.com/rolehippie/coredns/issues/98)) ([5a3a893](https://github.com/rolehippie/coredns/commit/5a3a89386f8282ec93a07b1b42db51c4dcb6afe5))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.2 ([#91](https://github.com/rolehippie/coredns/issues/91)) ([60ddb12](https://github.com/rolehippie/coredns/commit/60ddb124606b49d82f68b1b01a74d74d2a069bd2))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.3 ([#99](https://github.com/rolehippie/coredns/issues/99)) ([504f224](https://github.com/rolehippie/coredns/commit/504f224e58bdc56314b4fd5427c9636e99434f12))
+* **mise:** update dependency pipx:ansible-lint to v26.10.0 ([#100](https://github.com/rolehippie/coredns/issues/100)) ([0584916](https://github.com/rolehippie/coredns/commit/05849165d88f1111fc830e8551d68141646bfc48))
+* **mise:** update dependency pipx:ansible-lint to v26.10.1 ([#102](https://github.com/rolehippie/coredns/issues/102)) ([5e45f01](https://github.com/rolehippie/coredns/commit/5e45f0185ab24d55cae33dc79485fad87e735633))
+* **mise:** update dependency pipx:ansible-lint to v26.9.0 ([#92](https://github.com/rolehippie/coredns/issues/92)) ([cdcf383](https://github.com/rolehippie/coredns/commit/cdcf3837aaea29db4502e2362b68b7d7dfeb1203))
+* **mise:** update dependency pipx:molecule to v26.10.0 ([#101](https://github.com/rolehippie/coredns/issues/101)) ([7b7f209](https://github.com/rolehippie/coredns/commit/7b7f2095dd1d16a7e5a9af79381d781e6e894551))
+* **mise:** update dependency pipx:molecule to v26.9.0 ([#93](https://github.com/rolehippie/coredns/issues/93)) ([51035e7](https://github.com/rolehippie/coredns/commit/51035e7fac383f388f6dafecee579063a6c1c2c6))
+* **mise:** update dependency prek to v0.5.3 ([#90](https://github.com/rolehippie/coredns/issues/90)) ([9a20c94](https://github.com/rolehippie/coredns/commit/9a20c946409241a1bfa465688199f6c82eb4bcab))
+* **mise:** update dependency prek to v0.5.4 ([#94](https://github.com/rolehippie/coredns/issues/94)) ([5127fe5](https://github.com/rolehippie/coredns/commit/5127fe5e31503098fc68d4e1f4e298a882041670))
+* **mise:** update dependency prek to v0.5.5 ([#97](https://github.com/rolehippie/coredns/issues/97)) ([dc54976](https://github.com/rolehippie/coredns/commit/dc54976768ad536148fdb455c9a8724dabc735ff))
+* **mise:** update dependency prek to v0.5.6 ([#103](https://github.com/rolehippie/coredns/issues/103)) ([be7ad02](https://github.com/rolehippie/coredns/commit/be7ad02fbe1f3d9ace43659639970b2c038efbcd))
+* **mise:** update dependency prek to v0.5.7 ([#104](https://github.com/rolehippie/coredns/issues/104)) ([3bff915](https://github.com/rolehippie/coredns/commit/3bff915127b1efdb63649364be85b4177559ebbb))
+
 ## [2.9.0](https://github.com/rolehippie/coredns/compare/v2.8.2...v2.9.0) (2026-09-07)
 
 ### Features
